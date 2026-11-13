@@ -1,0 +1,6 @@
+hc_data_proj:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "C:/Users/ASUS/source/repos/Healthcare ML/hc-platform/warehouse/hc.duckdb"
