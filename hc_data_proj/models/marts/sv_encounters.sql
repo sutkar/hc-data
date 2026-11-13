@@ -1,0 +1,36 @@
+{{
+    config(
+        materialized='view'
+    )
+}}
+
+select 
+    encounter_id,
+    source_dataset,
+    age,
+    age_band,
+    sex,
+    insurance_type,
+    socioeconomic_risk_score,
+    prior_admissions_6m,
+    prior_readmissions_1y,
+    time_since_last_discharge_days,
+    length_of_stay_days,
+    admission_type,
+    primary_dx_group,
+    comorbidity_index,
+    chronic_disease_count,
+    icu_stay_flag,
+    severity_score,
+    hba1c_level,
+    creatinine_level,
+    hemoglobin_level,
+    avg_systolic_bp,
+    num_medications,
+    medication_change_count,
+    high_risk_med_flag,
+    medication_adherence_score,
+    followup_appt_scheduled,
+    discharge_disposition,
+    readmitted
+from {{ ref('stg_readmission') }}

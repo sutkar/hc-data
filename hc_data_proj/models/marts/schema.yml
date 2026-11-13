@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: sv_encounters
+    description: "Canonical semantic view for hospital readmission encounters (Dataset K3)."
+    columns:
+      - name: encounter_id
+        description: "Unique surrogate key for each patient encounter."
+        tests:
+          - unique
+          - not_null
+
+      - name: readmitted
+        description: "Binary target flag indicating readmission within 30 days (0 or 1)."
+        tests:
+          - not_null
+          - accepted_values:
+              values: [0, 1]
+
+      - name: age
+        description: "Patient age in years."
+        tests:
+          - not_null
+
+      - name: source_dataset
+        description: "Origin source identifier (K3)."
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['K3']
